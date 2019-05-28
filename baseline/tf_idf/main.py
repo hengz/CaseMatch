@@ -32,7 +32,7 @@ tfidf_model = TfidfVectorizer(token_pattern=r"(?u)\b\w+\b").fit(data)
 sparse_result = tfidf_model.transform(data)
 
 f = open("data/input.txt", "r", encoding="utf8")
-ouf = open("data/output.txt", "w", encoding="utf8")
+ouf = open("data/output_baseline.txt", "w", encoding="utf8")
 for line in f:
     x = json.loads(line)
     y = [
