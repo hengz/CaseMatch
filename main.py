@@ -1,14 +1,16 @@
 import json
 import preprocess 
 
-se = set()
+A = []
+B = []
+C = []
 
 with open("input.txt", "r", encoding="utf8") as f:
     for line in f:
         x = json.loads(line)
-        se.add(x["A"])
-        se.add(x["B"])
-        se.add(x["C"])
+        A.add(x["A"])
+        B.add(x["B"])
+        C.add(x["C"])
 
 
 
