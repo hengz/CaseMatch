@@ -1,16 +1,25 @@
 import json
-import preprocess 
+from preprocess import Preprocess
+import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
 
-A = []
-B = []
-C = []
+se = set()
 
-with open("input.txt", "r", encoding="utf8") as f:
+with open("data/input.txt", "r", encoding="utf8") as f:
     for line in f:
         x = json.loads(line)
-        A.add(x["A"])
-        B.add(x["B"])
-        C.add(x["C"])
+        se.add(x["A"])
+        se.add(x["B"])
+        se.add(x["C"])
 
+contents = list(se)
+sentences = []
 
+preprocess = Preprocess("data/stopwords.txt")
+preprocess.preprocess_text(contents, sentences)
 
+# 使用训练集构建tfidf模型
+tfidf_model = TfidfVectorizer(token_pattern=r"(?u)\b\w+\b").fit(sentences)
+sparse_data = tfidf_model.transform(sentences)
+
+print(sparse_data)
