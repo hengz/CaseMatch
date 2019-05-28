@@ -6,7 +6,7 @@
         {
             "label": "python",
             "type": "shell",
-            "command": "E:/Soft/Anaconda3/python",
+            "command": "C:/Users/vick_/Anaconda3/python",
             "args": [
                 "${file}"
             ],
