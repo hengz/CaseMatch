@@ -10,14 +10,14 @@ def trans(x):
 
 
 se = set()
-f = open("input.txt", "r", encoding="utf8")
+f = open("data/input.txt", "r", encoding="utf8")
 for line in f:
     x = json.loads(line)
     se.add(x["A"])
     se.add(x["B"])
-    se.add(x["C"])
+    se.add(x["C"]) 
 
-f = open("input.txt", "r", encoding="utf8")
+f = open("data/input.txt", "r", encoding="utf8")
 for line in f:
     x = json.loads(line)
     se.add(x["A"])
@@ -31,8 +31,8 @@ for a in range(0, len(data)):
 tfidf_model = TfidfVectorizer(token_pattern=r"(?u)\b\w+\b").fit(data)
 sparse_result = tfidf_model.transform(data)
 
-f = open("input.txt", "r", encoding="utf8")
-ouf = open("output.txt", "w", encoding="utf8")
+f = open("data/input.txt", "r", encoding="utf8")
+ouf = open("data/output.txt", "w", encoding="utf8")
 for line in f:
     x = json.loads(line)
     y = [
